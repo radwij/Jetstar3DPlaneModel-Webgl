@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar WebGL</title>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="data.js"></script>
+    <script type="text/javascript" src="gl-matrix-min.js"></script>
+    <script type="text/javascript" src="IOHandler.js"></script>
+
+    <style>
+        html, head, body {
+          margin: 0;
+          padding: 25px;
+          background-color: #02080b;
+        }
+
+        h1 {
+            color: whitesmoke;
+        }
+
+        p {
+            color: whitesmoke;
+        }
+      </style>
+</head>
+<body onload="main()">
+    <h1 style="color: whitesmoke;">Tugas ETS Grafika Komputer</h1>
+    <canvas id="myCanvas" style="background-color: #da6052; border: 1px solid black;" width="750px" height="650px"></canvas>
+
+    <p>I Putu Raditya Partha Wijaya</p>
+    <p>5025221210</p>
+    <p>Penghapus Berbentuk Pesawat</p>
+
+    <script id="vertexShaderCode" type="notjs">
+        attribute vec3 aPosition;
+        attribute vec3 aColor;
+        uniform mat4 uMatrix;
+        uniform mat4 uProj;
+        uniform mat4 uView;
+        uniform mat4 uModel;
+        varying vec3 vColor;
+        void main(){
+            vColor = aColor;
+            gl_Position = uProj*uView*uModel*vec4(aPosition, 1.0);
+        }
+    </script>
+</body>
+</html>
